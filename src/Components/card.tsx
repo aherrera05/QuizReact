@@ -1,13 +1,28 @@
-import React from "react";
+import React, {useState} from 'react';
+import {Plants} from './data';
 
-function Card(){
+// interface CardProps extends Plants {
+// 	addPlant?:()=> void;
+// 	removePlant?: () => void;
+// }
 
-    return (
-        <div className="card">
-            <div className="card-body">
-                <h4 className="card-title">Plants </h4>
-                <p className="card-text">Texto texto</p>
-            </div>
-        </div>
-    )
+export const Card:React.FC<Plants> = ({title, description, quantity, imgURL}) => {
+	const [plantQuantity, setPlantQuantity] = useState<number>(quantity);
+
+	const addPlant = () => {
+		setPlantQuantity((previousQuantity) => previousQuantity+1);
+	};
+
+	const removePlant = () => {
+		setPlantQuantity((previousQuantity) => previousQuantity-1);
+
+	}
+	return <div>
+		<h1>{title}</h1>
+		<p>{description}</p>
+		<img src={imgURL} alt={title} />
+		<span>{plantQuantity}</span>
+		<button onClick={()=>addPlant()}>+</button>
+		<button onClick={()=>removePlant()}>-</button>
+	</div>
 }

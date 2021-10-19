@@ -1,6 +1,6 @@
 
 export interface Plants {
-	id: number;
+	id?: number;
 	title: string;
 	description: string;
 	imgURL: string;
