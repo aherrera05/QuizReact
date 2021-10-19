@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import {PLANTS_DATA,Plants} from './data';
 import {Card} from './card';
+import '../App.css';
+
+
+
 
 function App() {
   const [plants, setPlants] = useState(PLANTS_DATA);
 
+  
   /** MANEJO DE ESTADO Y ACTUALIZACION DE CANTIDAD DESDE COMPONENTE PADRE */
   // const [currentId, setCurrentId] = useState(0);
   
@@ -34,8 +39,13 @@ function App() {
   // const setPlant = (id:number) => {
   //   setCurrentId(id);
   // }
-
+ 
+   
+    const totalPlants = plants.reduce((prevUser, currentUser) => prevUser + currentUser.quantity, 0);
+    const TotalMessage = totalPlants <= 0 ? 'Planta no disponible' : 'Plantas';
+  
   return (
+
     <div>
       {plants.length > 0 ? plants.map( (plant) => 
       //   <div  key={plant.id} onClick={() => setPlant(plant.id!) }>
@@ -44,6 +54,7 @@ function App() {
       </div>
       
       ): null }
+      <p>Plantas total {totalPlants} {TotalMessage}</p>
     </div>
   );
 }
