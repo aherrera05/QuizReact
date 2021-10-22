@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Plants} from './data';
 import styled from 'styled-components';
 import '../index.css';
+import { render } from '@testing-library/react';
 
 // interface CardProps extends Plants {
 // 	addPlant?:()=> void;
@@ -19,7 +20,8 @@ export const Card:React.FC<Plants> = ({title, description, quantity, imgURL}) =>
 		setPlantQuantity((previousQuantity) => previousQuantity-1);
 		
 	}
-	const TotalMessage = quantity <= 0 ? 'Planta no disponible' : 'Plantas';
+	
+	const TotalMessage =plantQuantity <= 0 ? 'Planta no disponible':'Plantas';
 	
     
 	
@@ -30,8 +32,8 @@ export const Card:React.FC<Plants> = ({title, description, quantity, imgURL}) =>
 		<ImageContainer>
 		<img src={imgURL} alt={title} />
 		</ImageContainer>
-		<span>{plantQuantity}</span>
-		<p>{TotalMessage}</p>
+		<span>{plantQuantity}</span><h1>{TotalMessage}</h1>
+		
 		<Button onClick={()=>addPlant()}>+</Button>
 		<Button onClick={()=>removePlant()}>-</Button>
 
@@ -58,8 +60,6 @@ const Button = styled.button`
  const ImageContainer = styled.div`
 	width:  300px;
 	heigth: 500px
-	
-
 	
  
 `;

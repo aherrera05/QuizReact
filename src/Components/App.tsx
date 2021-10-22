@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {PLANTS_DATA,Plants} from './data';
 import {Card} from './card';
 import '../App.css';
+import { render } from '@testing-library/react';
 
 
 
