@@ -41,8 +41,7 @@ function App() {
   // }
  
    
-    const totalPlants = plants.reduce((prevUser, currentUser) => prevUser + currentUser.quantity, 0);
-    const TotalMessage = totalPlants <= 0 ? 'Planta no disponible' : 'Plantas';
+    
   
   return (
 
@@ -54,7 +53,7 @@ function App() {
       </div>
       
       ): null }
-      <p>Plantas total {totalPlants} {TotalMessage}</p>
+     
     </div>
   );
 }

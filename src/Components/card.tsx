@@ -27,7 +27,9 @@ export const Card:React.FC<Plants> = ({title, description, quantity, imgURL}) =>
 	return <Container>
 		<h1>{title}</h1>
 		<p>{description}</p>
+		<ImageContainer>
 		<img src={imgURL} alt={title} />
+		</ImageContainer>
 		<span>{plantQuantity}</span>
 		<p>{TotalMessage}</p>
 		<Button onClick={()=>addPlant()}>+</Button>
@@ -53,5 +55,12 @@ const Button = styled.button`
 	}
 `;
 
+ const ImageContainer = styled.div`
+	width:  300px;
+	heigth: 500px
+	
+
+	
  
+`;
 
